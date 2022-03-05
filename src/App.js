@@ -6,6 +6,7 @@ import { ListarCliente } from './views/Cliente/ListarClientes/';
 import { ListarPedido } from './views/Pedido/ListarPedidos/';
 import { ListarServico } from './views/Servico/ListarServicos/';
 import { Item } from './views/Servico/item/';
+import { Cadastrar } from './views/Servico/Cadastrar/'
 
 function App() {
   return (
@@ -15,9 +16,10 @@ function App() {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path="/listar-cliente" component={ListarCliente}/>
-          <Route path="/listar-pedido" component={ListarPedido}/>
+          {/* <Route path="/listar-pedido" component={ListarPedido}/> */}
           <Route path="/listar-servico" component={ListarServico}/>
           <Route path="/listar-pedido/:id" component={Item}/>
+          <Route path="/cadastrarservico" component={Cadastrar}/>
         </Switch>
       </Router>
     </div>

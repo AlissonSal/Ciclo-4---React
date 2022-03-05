@@ -9,16 +9,16 @@ export const Home = () => {
                         <h1>Home</h1>
                     </div>
                     <div className="p-2">
-                        <a href="/listar-cliente" className="btn btn-outline-success btn-sm">Cliente</a>
+                        <a href="/listar-cliente" className="btn btn-outline-primary btn-sm">Cliente</a>
                     </div>
                     <div className="p-2">
-                        <a href="/listar-servico" className="btn btn-outline-success btn-sm">Serviço</a>
+                        <a href="/listar-servico" className="btn btn-outline-primary btn-sm">Serviço</a>
                     </div>
                     <div className="p-2">
-                        <a href="/listar-pedido" className="btn btn-outline-success btn-sm">Pedido</a>
+                        <a href="/listar-pedido" className="btn btn-outline-primary btn-sm">Pedido</a>
                     </div>  
                 </div>
             </Container >
-        </div >
+        </div>
     );
 };
