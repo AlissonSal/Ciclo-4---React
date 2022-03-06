@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Alert, Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 import { api } from "../../../config";
 
-export const Cadastrar = () => {
+export const InserirServico = () => {
 
     const [servico, setServico] = useState({
         nome: '',
@@ -82,7 +82,8 @@ export const Cadastrar = () => {
                         onChange={valorInput} />
                 </FormGroup>
 
-                <Button type="submit" outline color="primary">Finalizar Cadastro do Serviço</Button>
+                <Button type="submit" outline color="success">Finalizar Cadastro do Serviço</Button>
+                <Button type="reset" outline color="success">Limpar</Button>
             </Form>
         </Container >
     );

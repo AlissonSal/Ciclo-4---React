@@ -17,6 +17,12 @@ export const Home = () => {
                     <div className="p-2">
                         <a href="/listar-pedido" className="btn btn-outline-primary btn-sm">Pedido</a>
                     </div>  
+                    <div className="p-2">
+                        <a href="/listar-produto" className="btn btn-outline-primary btn-sm">Produto</a>
+                    </div>
+                    <div className="p-2">
+                        <a href="/listar-compra" className="btn btn-outline-primary btn-sm">Compra</a>
+                    </div>  
                 </div>
             </Container >
         </div>

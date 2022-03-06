@@ -6,7 +6,7 @@ import { Alert, Container, Table } from "reactstrap";
 
 import { api } from "../../../config";
 
-export const ListarServico = () => {
+export const ListarProduto = () => {
 
     const [data, setData] = useState([]);
     const [status, setStatus] = useState({
@@ -14,11 +14,11 @@ export const ListarServico = () => {
         message: ''
     });
 
-    const getServicos = async () => {
-        await axios.get(api + "/listaservicos")
+    const getProdutos = async () => {
+        await axios.get(api + "/listaprodutos")
             .then((response) => {
-                console.log(response.data.servicos);
-                setData(response.data.servicos);
+                console.log(response.data.produtos);
+                setData(response.data.produtos);
             })
             .catch(() => {
                 setStatus({
@@ -29,18 +29,18 @@ export const ListarServico = () => {
             })
     }
 
-    const apagarServico = async (idServico) => {
-        console.log(idServico);
+    const apagarProduto = async (idProduto) => {
+        console.log(idProduto);
 
         const headers = {
             'Content-type': 'application/json'
         }
 
-        await axios.delete(api + "/excluirservico/" + idServico,
+        await axios.delete(api + "/excluirproduto/" + idProduto,
             { headers })
             .then((response) => {
                 console.log(response.data.error);
-                getServicos();
+                getProdutos();
             })
             .catch(() => {
                 setStatus({
@@ -51,7 +51,7 @@ export const ListarServico = () => {
     }
 
     useEffect(() => {
-        getServicos();
+        getProdutos();
     }, []);
 
 
@@ -60,11 +60,11 @@ export const ListarServico = () => {
             <Container>
                 <div className="d-flex">
                     <div>
-                        <h1>Visualizar Informações do Serviço</h1>
+                        <h1>Visualizar Informações do Produto</h1>
                     </div>
                     <div className="m-auto p-2">
-                        <Link to="/inserir-servico"
-                            className="btn btn-outline-primary btn-sm" >Cadastrar Serviço</Link>
+                        <Link to="/inserir-produto"
+                            className="btn btn-outline-primary btn-sm" >Cadastrar Produto</Link>
                     </div>
                     {status.type === 'error' ? <Alert color="danger">{status.message}</Alert> : ""}
                 </div>
@@ -78,18 +78,18 @@ export const ListarServico = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map(item => (
-                            <tr key={item.id}>
-                                <td>{item.id}</td>
-                                <td>{item.nome}</td>
-                                <td>{item.descricao}</td>
+                        {data.map(prod => (
+                            <tr key={prod.id}>
+                                <td>{prod.id}</td>
+                                <td>{prod.nome}</td>
+                                <td>{prod.descricao}</td>
                                 <td className="text-center">
-                                    <Link to={"/listar-pedido/" + item.id}
+                                    <Link to={"/listar-compra/" + prod.id}
                                         className="btn btn-outline-primary btn-sm">Consultar</Link>
-                                        <Link to={"/listar-pedido/" + item.id}
+                                        <Link to={"/listar-compra/" + prod.id}
                                         className="btn btn-outline-success btn-sm">Atualizar</Link>
                                     <span className="btn btn-outline-danger btn-sm"
-                                        onClick={() => apagarServico(item.id)}>Excluir</span>
+                                        onClick={() => apagarProduto(prod.id)}>Excluir</span>
                                 </td>
                             </tr>
                         ))}

@@ -5,10 +5,10 @@ import { Alert, Container, Table } from "reactstrap";
 
 import { api } from "../../../config";
 
-export const Item = (props) => {
+export const PedidoServico = (props) => {
     // console.log(props.match.params.id);
 
-    
+
     const [data, setData] = useState([]);
 
     const [id, setId] = useState(props.match.params.id)
@@ -19,7 +19,7 @@ export const Item = (props) => {
     });
 
     const getItens = async () => {
-        await axios.get(api + "/servico/"+id+"/pedidos")
+        await axios.get(api + "/servico/" + id + "/pedidos")
             .then((response) => {
                 console.log(response.data.item);
                 setData(response.data.item);
@@ -41,17 +41,24 @@ export const Item = (props) => {
     return (
         <div>
             <Container>
-                <div>
-                    <h1>Pedidos do Serviço</h1>
+                <div className="d-flex">
+                    <div>
+                        <h1>Pedidos do Serviço</h1>
+                    </div>
+                    <div className="m-auto p-2">
+                        <Link to="/listar-servico"
+                            className="btn btn-outline-primary btn-sm" >Serviços</Link>
+                    </div>
                 </div>
-                {status.type === 'error' ? <Alert color="danger">{status.message}</Alert>:""}
+
+                {status.type === 'error' ? <Alert color="danger">{status.message}</Alert> : ""}
                 <Table striped>
                     <thead>
                         <tr>
                             <th>Pedido</th>
                             <th>Quantidade</th>
                             <th>Valor</th>
-                            <th>Visualizar</th>
+                            {/* <th>Visualizar</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -60,10 +67,10 @@ export const Item = (props) => {
                                 <td>{item.PedidoId}</td>
                                 <td>{item.quantidade}</td>
                                 <td>{item.valor}</td>
-                                <td className="text-center">
+                                {/* <td className="text-center">
                                     <Link to={"/listar-pedido/"}
                                     className="btn btn-outline-primary btn-sm">Consultar</Link>
-                                </td>
+                                </td> */}
                             </tr>
                         ))}
                     </tbody>

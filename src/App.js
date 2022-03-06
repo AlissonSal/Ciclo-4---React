@@ -3,10 +3,17 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { Home } from './views/Home/';
 import { Menu } from './components/Menu';
 import { ListarCliente } from './views/Cliente/ListarClientes/';
-import { ListarPedido } from './views/Pedido/ListarPedidos/';
+import { InserirCliente } from './views/Cliente/InserirCliente';
 import { ListarServico } from './views/Servico/ListarServicos/';
-import { Item } from './views/Servico/item/';
-import { Cadastrar } from './views/Servico/Cadastrar/'
+import { PedidoServico } from './views/Servico/PedidosServico';
+import { InserirServico } from './views/Servico/InserirServico';
+import { ListarPedidos } from './views/Pedido/ListarPedidos';
+import { InserirPedido } from './views/Pedido/InserirPedido';
+import { ListarCompras } from './views/Compra/ListarCompras';
+import { InserirCompra } from './views/Compra/InserirCompra';
+import { ListarProduto } from './views/Produto/ListarProduto';
+import { InserirProduto } from './views/Produto/InserirProduto';
+import { CompraProduto } from './views/Produto/CompraProduto';
 
 function App() {
   return (
@@ -16,10 +23,17 @@ function App() {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path="/listar-cliente" component={ListarCliente}/>
-          {/* <Route path="/listar-pedido" component={ListarPedido}/> */}
+          <Route path = "/inserir-cliente" component = {InserirCliente}/>
           <Route path="/listar-servico" component={ListarServico}/>
-          <Route path="/listar-pedido/:id" component={Item}/>
-          <Route path="/cadastrarservico" component={Cadastrar}/>
+          <Route path="/inserir-servico" component={InserirServico}/>
+          <Route path="/listar-pedido/:id" component={PedidoServico}/>
+          <Route path="/listar-pedido" component={ListarPedidos}/>
+          <Route path="/inserir-pedido" component={InserirPedido}/>
+          <Route path="/listar-compra/:id" component={CompraProduto}/>
+          <Route path="/listar-compra" component={ListarCompras}/>
+          <Route path="/inserir-compra" component={InserirCompra}/>
+          <Route path="/listar-produto" component={ListarProduto}/>
+          <Route path="/inserir-produto" component={InserirProduto}/>
         </Switch>
       </Router>
     </div>
