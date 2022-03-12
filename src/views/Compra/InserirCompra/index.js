@@ -59,7 +59,7 @@ export const InserirCompra = () => {
                     </div>
                     <div className="p-2">
                         <Link to="/listar-compra"
-                            className="btn btn-outline-primary btn-sm">Compras</Link>
+                            className="btn btn-outline-success btn-sm">Compras</Link>
                     </div>
                 </div>
 
@@ -78,7 +78,7 @@ export const InserirCompra = () => {
                         <Input type="text" name="data" placeholder="Data"
                             onChange={valorInput} />
                     </FormGroup>
-                    <Button type="submit" outline color="success">
+                    <Button type="submit" outline color="warning">
                         Finalizar Cadastro da Compra</Button>
                     <Button type="reset" outline color="success">Limpar</Button>
                 </Form>

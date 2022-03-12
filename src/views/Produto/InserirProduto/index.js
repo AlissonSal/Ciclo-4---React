@@ -60,7 +60,7 @@ export const InserirProduto = () => {
                 </div>
                 <div className="p-2">
                     <Link to="/listar-produto"
-                        className="btn btn-outline-primary btn-sm">Produtos</Link>
+                        className="btn btn-outline-success btn-sm">Produtos</Link>
                 </div>
             </div>
 
@@ -82,7 +82,7 @@ export const InserirProduto = () => {
                         onChange={valorInput} />
                 </FormGroup>
 
-                <Button type="submit" outline color="success">Finalizar Cadastro do Produto</Button>
+                <Button type="submit" outline color="warning">Finalizar Cadastro do Produto</Button>
                 <Button type="reset" outline color="success">Limpar</Button>
             </Form>
         </Container >

@@ -42,12 +42,12 @@ export const CompraProduto = (props) => {
         <div>
             <Container>
                 <div className="d-flex">
-                    <div>
+                    <div className="m-auto p-2">
                         <h1>Compras do Produto</h1>
                     </div>
-                    <div className="m-auto p-2">
+                    <div className="p-2">
                         <Link to="/listar-produto"
-                            className="btn btn-outline-primary btn-sm" >Produtos</Link>
+                            className="btn btn-outline-success btn-sm" >Produtos</Link>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@ export const CompraProduto = (props) => {
                             <th>Compra</th>
                             <th>Quantidade</th>
                             <th>Valor</th>
-                            {/* <th>Visualizar</th> */}
+                            <th>Ação</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,10 +67,10 @@ export const CompraProduto = (props) => {
                                 <td>{itens.CompraId}</td>
                                 <td>{itens.quantidade}</td>
                                 <td>{itens.valor}</td>
-                                {/* <td className="text-center">
-                                    <Link to={"/listar-pedido/"}
-                                    className="btn btn-outline-primary btn-sm">Consultar</Link>
-                                </td> */}
+                                <td className="text-center">
+                                    <Link to={"/editar-itemcompra/" + itens.CompraId}
+                                    className="btn btn-outline-primary btn-sm">Atualizar</Link>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

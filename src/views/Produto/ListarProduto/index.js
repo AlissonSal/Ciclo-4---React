@@ -59,12 +59,12 @@ export const ListarProduto = () => {
         <div>
             <Container>
                 <div className="d-flex">
-                    <div>
+                    <div className="m-auto p-2">
                         <h1>Visualizar Informações do Produto</h1>
                     </div>
-                    <div className="m-auto p-2">
+                    <div className="p-2">
                         <Link to="/inserir-produto"
-                            className="btn btn-outline-primary btn-sm" >Cadastrar Produto</Link>
+                            className="btn btn-outline-success btn-sm" >Cadastrar Produto</Link>
                     </div>
                     {status.type === 'error' ? <Alert color="danger">{status.message}</Alert> : ""}
                 </div>
@@ -86,7 +86,7 @@ export const ListarProduto = () => {
                                 <td className="text-center">
                                     <Link to={"/listar-compra/" + prod.id}
                                         className="btn btn-outline-primary btn-sm">Consultar</Link>
-                                        <Link to={"/listar-compra/" + prod.id}
+                                        <Link to={"/editar-produto/" + prod.id}
                                         className="btn btn-outline-success btn-sm">Atualizar</Link>
                                     <span className="btn btn-outline-danger btn-sm"
                                         onClick={() => apagarProduto(prod.id)}>Excluir</span>

@@ -59,12 +59,12 @@ export const ListarServico = () => {
         <div>
             <Container>
                 <div className="d-flex">
-                    <div>
+                    <div className="m-auto p-2">
                         <h1>Visualizar Informações do Serviço</h1>
                     </div>
-                    <div className="m-auto p-2">
+                    <div className="p-2">
                         <Link to="/inserir-servico"
-                            className="btn btn-outline-primary btn-sm" >Cadastrar Serviço</Link>
+                            className="btn btn-outline-success btn-sm" >Cadastrar Serviço</Link>
                     </div>
                     {status.type === 'error' ? <Alert color="danger">{status.message}</Alert> : ""}
                 </div>
@@ -86,7 +86,7 @@ export const ListarServico = () => {
                                 <td className="text-center">
                                     <Link to={"/listar-pedido/" + item.id}
                                         className="btn btn-outline-primary btn-sm">Consultar</Link>
-                                        <Link to={"/listar-pedido/" + item.id}
+                                        <Link to={"/editar-servico/" + item.id}
                                         className="btn btn-outline-success btn-sm">Atualizar</Link>
                                     <span className="btn btn-outline-danger btn-sm"
                                         onClick={() => apagarServico(item.id)}>Excluir</span>

@@ -42,12 +42,12 @@ export const PedidoServico = (props) => {
         <div>
             <Container>
                 <div className="d-flex">
-                    <div>
+                    <div className="m-auto p-2">
                         <h1>Pedidos do Serviço</h1>
                     </div>
-                    <div className="m-auto p-2">
+                    <div className="p-2">
                         <Link to="/listar-servico"
-                            className="btn btn-outline-primary btn-sm" >Serviços</Link>
+                            className="btn btn-outline-success btn-sm" >Serviços</Link>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@ export const PedidoServico = (props) => {
                             <th>Pedido</th>
                             <th>Quantidade</th>
                             <th>Valor</th>
-                            {/* <th>Visualizar</th> */}
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,10 +67,10 @@ export const PedidoServico = (props) => {
                                 <td>{item.PedidoId}</td>
                                 <td>{item.quantidade}</td>
                                 <td>{item.valor}</td>
-                                {/* <td className="text-center">
-                                    <Link to={"/listar-pedido/"}
-                                    className="btn btn-outline-primary btn-sm">Consultar</Link>
-                                </td> */}
+                                <td className="text-center">
+                                    <Link to={"/editar-itempedido/" + item.PedidoId}
+                                        className="btn btn-outline-primary btn-sm">Atualizar</Link>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

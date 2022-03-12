@@ -59,7 +59,7 @@ export const InserirPedido = () => {
                     </div>
                     <div className="p-2">
                         <Link to="/listar-pedido"
-                            className="btn btn-outline-primary btn-sm">Pedidos</Link>
+                            className="btn btn-outline-success btn-sm">Pedidos</Link>
                     </div>
                 </div>
 
@@ -78,7 +78,7 @@ export const InserirPedido = () => {
                         <Input type="text" name="dataPedido" placeholder="Data Pedido"
                             onChange={valorInput} />
                     </FormGroup>
-                    <Button type="submit" outline color="success">
+                    <Button type="submit" outline color="warning">
                         Finalizar Cadastro do Pedido</Button>
                     <Button type="reset" outline color="success">Limpar</Button>
                 </Form>

@@ -59,10 +59,10 @@ export const ListarCompras = () => {
                             {status.message}</Alert> : ""}
                 </div>
                 <div className="d-flex">
-                    <div>
+                    <div className="m-auto p-2">
                         <h1>Visualizar Compras</h1>
                     </div>
-                    <div className="m-auto p-2">
+                    <div className="p-2">
                         <Link to="/inserir-compra" className="btn btn-outline-success btn-sm">Cadastrar Compras</Link>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ export const ListarCompras = () => {
                                 <td>{comp.ClienteId}</td>
                                 <td>{comp.data}</td>
                                 <td className="text-center">
-                                    <Link to={"/compras-cliente/" + comp.id}
+                                    <Link to={"/editar-compra/" + comp.id}
                                         className="btn btn-outline-primary btn-sm">Atualizar</Link>
                                     <span className="btn btn-outline-danger btn-sm"
                                         onClick={() => apagarCompra(comp.id)}>Excluir</span>

@@ -59,10 +59,10 @@ export const ListarCliente = () => {
                             {status.message}</Alert> : ""}
                 </div>
                 <div className="d-flex">
-                    <div>
+                    <div className="m-auto p-2">
                         <h1>Visualizar Clientes</h1>
                     </div>
-                    <div className="m-auto p-2">
+                    <div className="p-2">
                         <Link to="/inserir-cliente" className="btn btn-outline-success btn-sm">Cadastrar Cliente</Link>
                     </div>
                 </div>
@@ -72,7 +72,11 @@ export const ListarCliente = () => {
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
+                            <th>Endereço</th>
+                            <th>Cidade</th>
+                            <th>UF</th>
                             <th>Nascimento</th>
+                            <th>Cliente Desde</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -81,9 +85,13 @@ export const ListarCliente = () => {
                             <tr key={cli.id}>
                                 <th scope="row">{cli.id}</th>
                                 <td>{cli.nome}</td>
+                                <td>{cli.endereco}</td>
+                                <td>{cli.cidade}</td>
+                                <td>{cli.uf}</td>
                                 <td>{cli.nascimento}</td>
+                                <td>{cli.clienteDesde}</td>
                                 <td className="text-center">
-                                    <Link to={"/pedidos-cliente/" + cli.id}
+                                    <Link to={"/editar-cliente/" + cli.id}
                                         className="btn btn-outline-primary btn-sm">Atualizar</Link>
                                     <span className="btn btn-outline-danger btn-sm"
                                         onClick={() => apagarCliente(cli.id)}>Excluir</span>

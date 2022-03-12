@@ -59,10 +59,10 @@ export const ListarPedidos = () => {
                             {status.message}</Alert> : ""}
                 </div>
                 <div className="d-flex">
-                    <div>
+                    <div className="m-auto p-2">
                         <h1>Visualizar Pedidos</h1>
                     </div>
-                    <div className="m-auto p-2">
+                    <div className="p-2">
                         <Link to="/inserir-pedido" className="btn btn-outline-success btn-sm">Cadastrar Pedido</Link>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ export const ListarPedidos = () => {
                                 <td>{ped.ClienteId}</td>
                                 <td>{ped.dataPedido}</td>
                                 <td className="text-center">
-                                    <Link to={"/pedidos-cliente/" + ped.id}
+                                    <Link to={"/editar-pedido/" + ped.id}
                                         className="btn btn-outline-primary btn-sm">Atualizar</Link>
                                     <span className="btn btn-outline-danger btn-sm"
                                         onClick={() => apagarPedido(ped.id)}>Excluir</span>
