@@ -71,9 +71,9 @@ export const EditarPedido = (props) => {
 
                 <Form className="p-2" onSubmit={edtPedido}>
                     <FormGroup className="p-2">
-                        <Label>ID Pedido</Label>
+                        <Label>PedidoID</Label>
                         <Input type="text" name="id"
-                            placeholder="Id do Pedido"
+                            placeholder="Id do Pedido" disabled
                             defaultValue={id} />
                     </FormGroup>
                     <FormGroup className="p-2">
@@ -87,9 +87,8 @@ export const EditarPedido = (props) => {
                         <Input type="text" name="ClienteId"
                             placeholder="Id do Cliente" defaultValue={ClienteId} />
                     </FormGroup>
-
-                    <Button type="submit" outline color="warning">Salvar</Button>
-                    <Button type="reset" outline color="success">Limpar</Button>
+                    <Button type="submit" outline color="success">Salvar</Button>
+                    <Button type="reset" outline color="danger">Limpar</Button>
                 </Form>
             </Container>
 

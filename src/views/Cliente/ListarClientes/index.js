@@ -77,9 +77,9 @@ export const ListarCliente = () => {
                             <th>UF</th>
                             <th>Nascimento</th>
                             <th>Cliente Desde</th>
-                            <th>Ações</th>
+                            <th className="text-center">Ações</th>
                         </tr>
-                    </thead>
+                    </thead> 
                     <tbody>
                         {data.map(cli => (
                             <tr key={cli.id}>

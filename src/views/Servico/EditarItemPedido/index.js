@@ -6,7 +6,7 @@ import { api } from "../../../config";
 
 export const EditarItemPedido = (props) => {
 
-    const [PedidoId, setPedidoId] = useState(props.match.params.id);
+    const [id, setId] = useState(props.match.params.id);
     const [quantidade, setQuantidade] = useState('');
     const [valor, setValor] = useState('');
     const [ServicoId, setServicoId] = useState('');
@@ -23,8 +23,8 @@ export const EditarItemPedido = (props) => {
             'Content-type': 'application/json'
         };
 
-        await axios.put(api + "/pedidos/" + PedidoId + "/editaritempedido",
-            { PedidoId, quantidade, valor, ServicoId }, { headers })
+        await axios.put(api + "/pedidos/" + id + "/editaritempedido",
+            { id, quantidade, valor, ServicoId }, { headers })
             .then((response) => {
                 setStatus({
                     type: 'success',
@@ -41,19 +41,23 @@ export const EditarItemPedido = (props) => {
 
     useEffect(() => {
         const getItemPedido = async () => {
-            await axios.get(api + "/pedido/" + PedidoId + "/itenspedidos")
-                .then((response) => {
-                    setPedidoId(response.data.item.PedidoId)
-                    setQuantidade(response.data.item.quantidade);
-                    setValor(response.data.item.valor);
-                    setServicoId(response.data.item.ServicoId);
-                })
-                .catch(() => {
-                    console.log("Erro: não foi possível se conectar a API.")
-                })
-        }
+          await axios
+            .get(api + "/itempedido/pedido/" + id)
+            .then((response) => {
+              const pedido = response.data.pedidos.item_pedidos.find((item) => {
+                return item.PedidoId === Number(id);
+              });
+              setId(pedido.PedidoId);
+              setQuantidade(pedido.quantidade);
+              setValor(pedido.valor);
+              setServicoId(pedido.ServicoId);
+            })
+            .catch((erro) => {
+              console.log("Erro: Não foi possível se conectar a API.", erro);
+            });
+        };
         getItemPedido();
-    }, [PedidoId]);
+      }, [id]);
 
     return (
         <div>
@@ -73,25 +77,31 @@ export const EditarItemPedido = (props) => {
 
                 <Form className="p-2" onSubmit={edtItemPedido}>
                     <FormGroup className="p-2">
-                        <Label>ID Pedido</Label>
-                        <Input type="text" name="PedidoId"
-                            placeholder="Id do Pedido"
-                            defaultValue={PedidoId} />
+                        <Label>PedidoID</Label>
+                        <Input type="text" name="id"
+                            placeholder="ID do Pedido" disabled
+                            defaultValue={id} />
+                    </FormGroup>
+                    <FormGroup className="p-2">
+                        <Label>ServiçoID</Label>
+                        <Input type="text" name="ServicoId"
+                            placeholder="ID do Serviço" disabled
+                            defaultValue={ServicoId} />
                     </FormGroup>
                     <FormGroup className="p-2">
                         <Label>Quantidade</Label>
                         <Input type="text" name="quantidade"
                             placeholder="Quantidade" value={quantidade}
-                            onChange={e => setQuantidade(e.target.value)} />
+                            onChange={(item) => setQuantidade(item.target.value)} />
                     </FormGroup>
                     <FormGroup className="p-2">
                         <Label>Valor</Label>
                         <Input type="text" name="valor"
                             placeholder="Valor" value={valor}
-                            onChange={e => setValor(e.target.value)} />
+                            onChange={(item) => setValor(item.target.value)} />
                     </FormGroup>
-                    <Button type="submit" outline color="warning">Salvar</Button>
-                    <Button type="reset" outline color="success">Limpar</Button>
+                    <Button type="submit" outline color="success">Salvar</Button>
+                    <Button type="reset" outline color="danger">Limpar</Button>
                 </Form>
             </Container>
 

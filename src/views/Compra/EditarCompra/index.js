@@ -73,9 +73,9 @@ export const EditarCompra = (props) => {
 
                 <Form className="p-2" onSubmit={edtCompra}>
                     <FormGroup className="p-2">
-                        <Label>ID Compra</Label>
+                        <Label>CompraID</Label>
                         <Input type="text" name="id"
-                            placeholder="Id da Compra"
+                            placeholder="Id da Compra" disabled
                             defaultValue={id} />
                     </FormGroup>
                     <FormGroup className="p-2">
@@ -90,8 +90,8 @@ export const EditarCompra = (props) => {
                             placeholder="Id do Cliente" defaultValue={ClienteId} />
                     </FormGroup>
 
-                    <Button type="submit" outline color="warning">Salvar</Button>
-                    <Button type="reset" outline color="success">Limpar</Button>
+                    <Button type="submit" outline color="success">Salvar</Button>
+                    <Button type="reset" outline color="danger">Limpar</Button>
                 </Form>
             </Container>
 

@@ -55,7 +55,7 @@ export const InserirPedido = () => {
             <Container>
                 <div className="d-flex">
                     <div className="m-auto p-2">
-                        <h1>Cadastar Pedidos</h1>
+                        <h1>Cadastar Pedido</h1>
                     </div>
                     <div className="p-2">
                         <Link to="/listar-pedido"
@@ -78,9 +78,9 @@ export const InserirPedido = () => {
                         <Input type="text" name="dataPedido" placeholder="Data Pedido"
                             onChange={valorInput} />
                     </FormGroup>
-                    <Button type="submit" outline color="warning">
+                    <Button type="submit" outline color="success">
                         Finalizar Cadastro do Pedido</Button>
-                    <Button type="reset" outline color="success">Limpar</Button>
+                    <Button type="reset" outline color="danger">Limpar</Button>
                 </Form>
 
             </Container>

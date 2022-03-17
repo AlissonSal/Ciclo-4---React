@@ -6,7 +6,7 @@ import { api } from "../../../config";
 
 export const EditarItemCompra = (props) => {
 
-    const [CompraId, setCompraId] = useState(props.match.params.id);
+    const [id, setId] = useState(props.match.params.id);
     const [quantidade, setQuantidade] = useState('');
     const [valor, setValor] = useState('');
     const [ProdutoId, setProdutoId] = useState('');
@@ -23,8 +23,8 @@ export const EditarItemCompra = (props) => {
             'Content-type': 'application/json'
         };
 
-        await axios.put(api + "/compras/" + CompraId + "/editaritemcompra",
-            { CompraId, quantidade, valor, ProdutoId }, { headers })
+        await axios.put(api + "/compras/" + id + "/editaritemcompra",
+            { id, quantidade, valor, ProdutoId }, { headers })
             .then((response) => {
                 setStatus({
                     type: 'success',
@@ -41,19 +41,22 @@ export const EditarItemCompra = (props) => {
 
     useEffect(() => {
         const getItemCompra = async () => {
-            await axios.get(api + "/compra/" + CompraId + "/itenscomprados")
-                .then((response) => {
-                    setCompraId(response.data.itcompra.CompraId);
-                    setQuantidade(response.data.itcompra.quantidade);
-                    setValor(response.data.itcompra.valor);
-                    setProdutoId(response.data.itcompra.ProdutoId);
-                })
-                .catch(() => {
-                    console.log("Erro: não foi possível se conectar a API.")
-                })
-        }
+          await axios.get(api + "/itemcompra/compra/" + id)
+            .then((response) => {
+              const compra = response.data.compras.item_compras.find((item) => {
+                return item.CompraId === Number(id);
+              });
+              setId(compra.CompraId);
+              setQuantidade(compra.quantidade);
+              setValor(compra.valor);
+              setProdutoId(compra.ProdutoId);
+            })
+            .catch((erro) => {
+              console.log("Erro: Não foi possível se conectar a API.", erro);
+            });
+        };
         getItemCompra();
-    }, [CompraId]);
+      }, [id]);
 
     return (
         <div>
@@ -73,25 +76,31 @@ export const EditarItemCompra = (props) => {
 
                 <Form className="p-2" onSubmit={edtItemCompra}>
                     <FormGroup className="p-2">
-                        <Label>ID Compra</Label>
-                        <Input type="text" name="CompraId"
-                            placeholder="Id da Compra"
-                            defaultValue={CompraId} />
+                        <Label>CompraID</Label>
+                        <Input type="text" name="id"
+                            placeholder="ID da Compra" disabled
+                            defaultValue={id} />
+                    </FormGroup>
+                    <FormGroup className="p-2">
+                        <Label>ProdutoID</Label>
+                        <Input type="text" name="ProdutoId"
+                            placeholder="Id do Produto" disabled
+                            defaultValue={ProdutoId} />
                     </FormGroup>
                     <FormGroup className="p-2">
                         <Label>Quantidade</Label>
                         <Input type="text" name="quantidade"
                             placeholder="Quantidade" value={quantidade}
-                            onChange={e => setQuantidade(e.target.value)} />
+                            onChange={(item) => setQuantidade(item.target.value)} />
                     </FormGroup>
                     <FormGroup className="p-2">
                         <Label>Valor</Label>
                         <Input type="text" name="valor"
                             placeholder="Valor" value={valor}
-                            onChange={e => setValor(e.target.value)} />
+                            onChange={(item) => setValor(item.target.value)} />
                     </FormGroup>
-                    <Button type="submit" outline color="warning">Salvar</Button>
-                    <Button type="reset" outline color="success">Limpar</Button>
+                    <Button type="submit" outline color="success">Salvar</Button>
+                    <Button type="reset" outline color="danger">Limpar</Button>
                 </Form>
             </Container>
 

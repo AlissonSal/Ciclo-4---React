@@ -16,7 +16,7 @@ import { EditarPedido } from './views/Pedido/EditarPedido';
 import { ListarCompras } from './views/Compra/ListarCompras';
 import { InserirCompra } from './views/Compra/InserirCompra';
 import { EditarCompra } from './views/Compra/EditarCompra';
-import { EditarItemCompra } from './views/Produto/EditarItemComprado';
+import { EditarItemCompra } from './views/Produto/EditarItemCompra';
 import { ListarProduto } from './views/Produto/ListarProduto';
 import { InserirProduto } from './views/Produto/InserirProduto';
 import { CompraProduto } from './views/Produto/CompraProduto';

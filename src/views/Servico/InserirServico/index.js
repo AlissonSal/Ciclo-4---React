@@ -82,8 +82,8 @@ export const InserirServico = () => {
                         onChange={valorInput} />
                 </FormGroup>
 
-                <Button type="submit" outline color="warning">Finalizar Cadastro do Serviço</Button>
-                <Button type="reset" outline color="success">Limpar</Button>
+                <Button type="submit" outline color="success">Finalizar Cadastro do Serviço</Button>
+                <Button type="reset" outline color="danger">Limpar</Button>
             </Form>
         </Container >
     );

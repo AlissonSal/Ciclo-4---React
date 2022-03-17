@@ -63,7 +63,7 @@ export const ListarCompras = () => {
                         <h1>Visualizar Compras</h1>
                     </div>
                     <div className="p-2">
-                        <Link to="/inserir-compra" className="btn btn-outline-success btn-sm">Cadastrar Compras</Link>
+                        <Link to="/inserir-compra" className="btn btn-outline-success btn-sm">Cadastrar Compra</Link>
                     </div>
                 </div>
 
@@ -71,9 +71,9 @@ export const ListarCompras = () => {
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Cliente Id</th>
+                            <th>ClienteID</th>
                             <th>Data</th>
-                            <th>Ações</th>
+                            <th className="text-center">Ações</th>
                         </tr>
                     </thead>
                     <tbody>

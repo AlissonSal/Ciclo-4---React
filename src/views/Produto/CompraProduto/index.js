@@ -55,10 +55,10 @@ export const CompraProduto = (props) => {
                 <Table striped>
                     <thead>
                         <tr>
-                            <th>Compra</th>
+                            <th>CompraID</th>
                             <th>Quantidade</th>
                             <th>Valor</th>
-                            <th>Ação</th>
+                            <th className="text-center">Ação</th>
                         </tr>
                     </thead>
                     <tbody>

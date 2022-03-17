@@ -78,9 +78,9 @@ export const InserirCliente = () => {
                         <Input type="text" name="nascimento" placeholder="Data de Nascimento"
                             onChange={valorInput} />
                     </FormGroup>
-                    <Button type="submit" outline color="warning">
+                    <Button type="submit" outline color="success">
                         Finalizar Cadastro do Cliente</Button>
-                    <Button type="reset" outline color="success">Limpar</Button>
+                    <Button type="reset" outline color="danger">Limpar</Button>
                 </Form>
 
             </Container>

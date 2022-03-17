@@ -73,7 +73,7 @@ export const EditarProduto = (props) => {
                     <FormGroup className="p-2">
                         <Label>ID Produto</Label>
                         <Input type="text" name="id"
-                            placeholder="Id do Produto"
+                            placeholder="Id do Produto" disabled
                             defaultValue={id} />
                     </FormGroup>
                     <FormGroup className="p-2">
@@ -88,8 +88,8 @@ export const EditarProduto = (props) => {
                             placeholder="Descrição do Serviço" value={descricao}
                             onChange={e => setDescricao(e.target.value)} />
                     </FormGroup>
-                    <Button type="submit" outline color="warning">Salvar</Button>
-                    <Button type="reset" outline color="success">Limpar</Button>
+                    <Button type="submit" outline color="success">Salvar</Button>
+                    <Button type="reset" outline color="danger">Limpar</Button>
                 </Form>
             </Container>
 

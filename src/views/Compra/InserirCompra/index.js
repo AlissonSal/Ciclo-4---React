@@ -55,7 +55,7 @@ export const InserirCompra = () => {
             <Container>
                 <div className="d-flex">
                     <div className="m-auto p-2">
-                        <h1>Cadastar Compras</h1>
+                        <h1>Cadastar Compra</h1>
                     </div>
                     <div className="p-2">
                         <Link to="/listar-compra"
@@ -78,9 +78,9 @@ export const InserirCompra = () => {
                         <Input type="text" name="data" placeholder="Data"
                             onChange={valorInput} />
                     </FormGroup>
-                    <Button type="submit" outline color="warning">
+                    <Button type="submit" outline color="success">
                         Finalizar Cadastro da Compra</Button>
-                    <Button type="reset" outline color="success">Limpar</Button>
+                    <Button type="reset" outline color="danger">Limpar</Button>
                 </Form>
 
             </Container>

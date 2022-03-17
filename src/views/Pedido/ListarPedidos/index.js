@@ -71,9 +71,9 @@ export const ListarPedidos = () => {
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>ClienteId</th>
+                            <th>ClienteID</th>
                             <th>Data Pedido</th>
-                            <th>Ações</th>
+                            <th className="text-center">Ações</th>
                         </tr>
                     </thead>
                     <tbody>

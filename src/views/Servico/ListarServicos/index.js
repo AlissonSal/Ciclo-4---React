@@ -74,7 +74,7 @@ export const ListarServico = () => {
                             <th>ID</th>
                             <th>Nome</th>
                             <th>Descrição</th>
-                            <th>Ação</th>
+                            <th className="text-center">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
