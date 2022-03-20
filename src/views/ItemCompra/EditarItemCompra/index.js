@@ -66,8 +66,8 @@ export const EditarItemCompra = (props) => {
                         <h1>Editar Item Compra</h1>
                     </div>
                     <div className="p-2">
-                        <Link to="/listar-produto"
-                            className="btn btn-outline-success btn-sm">Produtos</Link>
+                        <Link to="/listar-itemcompra"
+                            className="btn btn-outline-success btn-sm">Itens Compra</Link>
                     </div>
                 </div>
 

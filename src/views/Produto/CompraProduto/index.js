@@ -46,8 +46,8 @@ export const CompraProduto = (props) => {
                         <h1>Compras do Produto</h1>
                     </div>
                     <div className="p-2">
-                        <Link to="/listar-produto"
-                            className="btn btn-outline-success btn-sm" >Produtos</Link>
+                        <Link to="/inserir-itemcompra"
+                            className="btn btn-outline-success btn-sm" >Cadastrar Item Compa</Link>
                     </div>
                 </div>
 

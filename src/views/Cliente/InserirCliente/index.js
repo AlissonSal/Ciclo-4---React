@@ -74,8 +74,31 @@ export const InserirCliente = () => {
                             onChange={valorInput} />
                     </FormGroup>
                     <FormGroup className="p-2">
+                        <Label>Endereço</Label>
+                        <Input type="text" name="endereco"
+                            placeholder="Endereço"
+                            onChange={valorInput} />
+                    </FormGroup>
+                    <FormGroup className="p-2">
+                        <Label>Cidade</Label>
+                        <Input type="text" name="cidade"
+                            placeholder="Cidade"
+                            onChange={valorInput} />
+                    </FormGroup>
+                    <FormGroup className="p-2">
+                        <Label>UF</Label>
+                        <Input type="text" name="uf"
+                            placeholder="UF"
+                            onChange={valorInput} />
+                    </FormGroup>
+                    <FormGroup className="p-2">
                         <Label>Nascimento</Label>
                         <Input type="text" name="nascimento" placeholder="Data de Nascimento"
+                            onChange={valorInput} />
+                    </FormGroup>
+                    <FormGroup className="p-2">
+                        <Label>Cliente Desde</Label>
+                        <Input type="text" name="clienteDesde" placeholder="Cliente Desde"
                             onChange={valorInput} />
                     </FormGroup>
                     <Button type="submit" outline color="success">

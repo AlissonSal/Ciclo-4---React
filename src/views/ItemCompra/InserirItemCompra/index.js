@@ -4,11 +4,11 @@ import { useState } from "react/cjs/react.development";
 import { Alert, Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 import { api } from "../../../config";
 
-export const InserirPedido = () => {
+export const InserirItemCompra = () => {
 
-    const [pedido, setPedido] = useState({
-        nome: '',
-        nascimento: ''
+    const [itemCompra, setItemCompra] = useState({
+        quantidade: '',
+        valor: ''
     });
 
     const [status, setStatus] = useState({
@@ -16,19 +16,18 @@ export const InserirPedido = () => {
         message: ''
     });
 
-    const valorInput = e => setPedido({
-        ...pedido,
-        [e.target.name]: e.target.value
+    const valorInput = e => setItemCompra({
+        ...itemCompra, [e.target.name]: e.target.value
     })
 
-    const cadPedido = async e => {
+    const cadItemCompra = async e => {
         e.preventDefault();
 
         const headers = {
             'Content-Type': 'application/json'
         }
 
-        await axios.post(api + "/pedidos", pedido, { headers })
+        await axios.post(api + "/itenscompra", itemCompra, { headers })
             .then((response) => {
                 if (response.data.error) {
                     setStatus({
@@ -55,31 +54,42 @@ export const InserirPedido = () => {
             <Container>
                 <div className="d-flex">
                     <div className="m-auto p-2">
-                        <h1>Cadastar Pedido</h1>
+                        <h1>Cadastar Item Compra</h1>
                     </div>
                     <div className="p-2">
-                        <Link to="/listar-pedido"
-                            className="btn btn-outline-success btn-sm">Pedidos</Link>
+                        <Link to="/listar-itemcompra"
+                            className="btn btn-outline-success btn-sm">Itens Compra</Link>
                     </div>
                 </div>
 
                 {status.type === 'error' ? <Alert color="danger">{status.message}</Alert> : ""}
                 {status.type === 'success' ? <Alert color="primary">{status.message}</Alert> : ""}
 
-                <Form className="p-2" onSubmit={cadPedido}>
+                <Form className="p-2" onSubmit={cadItemCompra}>
                     <FormGroup className="p-2">
-                        <Label>ClienteID</Label>
-                        <Input type="text" name="ClienteId"
-                            placeholder="ID do Cliente"
+                        <Label>CompraID</Label>
+                        <Input type="text" name="CompraId"
+                            placeholder="ID da Compra"
                             onChange={valorInput} />
                     </FormGroup>
                     <FormGroup className="p-2">
-                        <Label>Data do Pedido</Label>
-                        <Input type="text" name="dataPedido" placeholder="Data Pedido"
+                        <Label>ProdutoID</Label>
+                        <Input type="text" name="ProdutoId"
+                            placeholder="ID do Produto"
+                            onChange={valorInput} />
+                    </FormGroup>
+                    <FormGroup className="p-2">
+                        <Label>Quantidade</Label>
+                        <Input type="text" name="quantidade" placeholder="Quantidade"
+                            onChange={valorInput} />
+                    </FormGroup>
+                    <FormGroup className="p-2">
+                        <Label>Valor</Label>
+                        <Input type="text" name="valor" placeholder="Valor"
                             onChange={valorInput} />
                     </FormGroup>
                     <Button type="submit" outline color="success">
-                        Finalizar Cadastro do Pedido</Button>
+                        Finalizar Cadastro do Item Compra</Button>
                     <Button type="reset" outline color="danger">Limpar</Button>
                 </Form>
 
@@ -87,4 +97,5 @@ export const InserirPedido = () => {
 
         </div>
     )
+
 }

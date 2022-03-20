@@ -77,15 +77,15 @@ export const EditarPedido = (props) => {
                             defaultValue={id} />
                     </FormGroup>
                     <FormGroup className="p-2">
+                        <Label>ClienteID</Label>
+                        <Input type="text" name="ClienteId"
+                            placeholder="ID do Cliente" disabled defaultValue={ClienteId} />
+                    </FormGroup>
+                    <FormGroup className="p-2">
                         <Label>Data</Label>
                         <Input type="text" name="dataPedido"
                             placeholder="Data do Pedido" value={dataPedido}
                             onChange={e => setDataPedido(e.target.value)} />
-                    </FormGroup>
-                    <FormGroup className="p-2">
-                        <Label>ClienteId</Label>
-                        <Input type="text" name="ClienteId"
-                            placeholder="Id do Cliente" defaultValue={ClienteId} />
                     </FormGroup>
                     <Button type="submit" outline color="success">Salvar</Button>
                     <Button type="reset" outline color="danger">Limpar</Button>

@@ -68,9 +68,9 @@ export const InserirCompra = () => {
 
                 <Form className="p-2" onSubmit={cadCompra}>
                     <FormGroup className="p-2">
-                        <Label>Id do Cliente</Label>
+                        <Label>ID do Cliente</Label>
                         <Input type="text" name="ClienteId"
-                            placeholder="Id do Cliente"
+                            placeholder="ID do Cliente"
                             onChange={valorInput} />
                     </FormGroup>
                     <FormGroup className="p-2">

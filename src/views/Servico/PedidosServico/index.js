@@ -33,6 +33,27 @@ export const PedidoServico = (props) => {
             })
     }
 
+    const apagarItens = async (idPedido) => {
+        console.log(idPedido);
+
+        const headers = {
+            'Content-type': 'application/json'
+        }
+
+        await axios.delete(api + "/pedidos/" + idPedido + "/excluiritenspedido",
+            { headers })
+            .then((response) => {
+                console.log(response.data.error);
+                getItens();
+            })
+            .catch(() => {
+                setStatus({
+                    type: 'error',
+                    message: 'Não foi possível conetar-se a API.'
+                });
+            });
+    }    
+
     useEffect(() => {
         getItens();
     }, [id]);
@@ -46,8 +67,8 @@ export const PedidoServico = (props) => {
                         <h1>Pedidos do Serviço</h1>
                     </div>
                     <div className="p-2">
-                        <Link to="/listar-servico"
-                            className="btn btn-outline-success btn-sm" >Serviços</Link>
+                        <Link to="/inserir-itempedido"
+                            className="btn btn-outline-success btn-sm" >Cadastrar Item Pedido</Link>
                     </div>
                 </div>
 
@@ -70,6 +91,8 @@ export const PedidoServico = (props) => {
                                 <td className="text-center">
                                     <Link to={"/editar-itempedido/" + item.PedidoId}
                                         className="btn btn-outline-primary btn-sm">Atualizar</Link>
+                                     <span className="btn btn-outline-danger btn-sm"
+                                        onClick={() => apagarItens(item.PedidoId)}>Excluir</span>
                                 </td>
                             </tr>
                         ))}
